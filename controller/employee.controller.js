@@ -29,7 +29,13 @@ router.delete("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
     const affectedRows = await service.addOrUpdateEmployee(req.body);
-    res.status(201).json("Created successfully ");
+    if(affectedRows > 0) {
+        res.status(201).json("Created successfully ");
+    }
+    else {
+        res.status(500).json("Created failed ");
+    }
+
 
 });
 

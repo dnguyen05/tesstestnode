@@ -1,5 +1,6 @@
 const express = require("express");
-const db = require("./database"), employeeRoutes = require("./controller/employee.controller"),
+const db = require("./database"),
+    employeeRoutes = require("./controller/employee.controller"),
 bodyparser = require("body-parser");
 require("express-async-errors");
 const cors = require("cors");

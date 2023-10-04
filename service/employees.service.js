@@ -20,6 +20,8 @@ module.exports.deleteEmployee = async (id) => {
 
 module.exports.addOrUpdateEmployee = async (obj, id = 0) => {
     const q = "CALL usp_employee_add_or_edit(?,?,?,?)";
-    const [[[{affectedRows}]]] = await db.query(q, [id, obj.name, obj.employee_code, obj.salary]);
+    const value = [id, obj.name, obj.employee_code, obj.salary];
+    const [[[{affectedRows}]]] = await db.query(q, value);
     return affectedRows;
 }
+
